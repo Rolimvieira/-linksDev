@@ -1,0 +1,258 @@
+* {
+margin: 0;
+padding: 0%;
+box-sizing: border-box;
+
+} 
+:root{
+  
+ --text-color: white;
+
+ --bg-url: url(./assets/bg-mobile.jpg);
+ --stroke-color: rgba(255, 255, 255, 0.5);
+ --surface-color:rgba(255, 255, 255, 0.05);
+ --surface-color-hover: rgba(0, 0, 0, 0.2);
+ --highlight-color: rgba(255, 255, 255, 0.2);
+ --switch-url:  url(./assets/moon-stars.svg);
+ 
+
+  /* serve como raiz do html, podemos usar uma variavel aqui pra alterar todo codigo assim como essa --text-color: white, pode se usar pra alterar as cores usadondo essa variavel */
+}
+
+.light{
+
+  --text-color:black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(179, 174, 174, 0.5);
+   --highlight-color: rgba(0, 0, 0, 0.1);
+   --switch-url:  url(./assets/sun.svg);
+}
+
+body {
+  /*
+  codigo completo da forma normal 
+ background-image: url(./assets/bg-mobile.jpg);
+ background-repeat: no-repeat;
+ background-position:top center;
+ background-size: cover;
+ */
+ /* codigo da fora one hand ou simples */
+
+ background: var(--bg-url) no-repeat top center/cover; 
+ height: 100vh;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color:var(--text-color); 
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin:56px auto 0px;
+  
+
+    /* outra  forma é 
+      margin:left auto;
+       margin: rigth auto;
+       */
+}
+
+#profile  {
+  text-align: center;
+  padding: 24px;
+}
+
+
+ #profile  img {
+width: 112px ;
+
+}
+ #profile p{
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 24px;
+   margin-top: 8px;
+
+ }
+  
+     /* botão light mode e dark mode posicionamento estudar mais sobre   */
+
+#switch {
+position: relative;
+width: 64px;
+margin: 4px auto;
+
+
+}
+
+ #switch button {
+  
+  width: 32px;
+  height: 32px;
+ background: white var(--switch-url) no-repeat center;
+ border: 0;
+ border-radius: 50%;
+
+ position: absolute;
+top: 50%;
+left: 0;
+z-index: 1;
+transform: translateY(-50%);
+animation: slide-out 0.4s;
+
+ }
+ #switch span {
+  display: block;
+width: 64px;
+height: 24px;
+background: var(--surface-color);
+border:1px solid var(--stroke-color);
+-webkit-backdrop-filter:blur(4px) ;
+border-radius: 9999px;
+
+
+ }
+
+.light #switch button  {
+ right: 0;
+animation: slide-in 0.4s forwards;
+
+
+ }
+ #switch button:hover {
+  outline: 8px solid var(--highlight-color);
+
+
+ }
+
+ /*
+#profile img {
+
+width: 112px ;
+margin: auto;
+display: block;
+}
+*/
+
+ /*links lista*/
+
+ ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0px;
+
+ }
+ ul li a {
+display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius:8px;
+  backdrop-filter: blur 4px;
+  text-decoration: none;
+  font-weight: 500px;
+  
+  
+
+
+
+
+ }
+  /*pseudo-selector*/
+
+  ul li a:hover
+   {
+    background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+  }
+  #social-links  {
+
+    padding: 24px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 40px;
+    border-radius: 50px;
+
+
+
+  }
+  #social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1px;
+
+
+border-radius: 50px;
+
+ }
+
+  #social-links:hover {
+
+   background: var(--highlight-color);
+ 
+  }
+
+  footer {
+text-align: center;
+text-decoration: none;
+padding: 24px 0px;
+font-size: 14px;
+
+
+  }
+   
+  /* media query */
+   
+ @media ( min-width:700px)  {
+  :root {
+
+   --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+.light {
+
+--bg-url: url(./assets/bg-desktop-light.jpg);
+
+}
+ }
+
+ /* keyframes animacoes*/
+ @keyframes slide-in {
+ from { 
+
+  left: 0;
+ }
+  to {
+left: 50%;
+
+
+  }
+  
+ }
+
+ @keyframes slide-out {
+  from {
+left: 50%;
+
+
+  }
+  to {
+
+    left: 0;
+  }
+
+
+
+
+ }
+
